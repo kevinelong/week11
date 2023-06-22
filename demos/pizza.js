@@ -28,7 +28,7 @@ class Pizza{
     constructor(){
         this.cheeseType = CheeseType.ITALIAN; // HAS A - COMPOSITION
         this.sauceType = SauceType.RED; // HAS A - COMPOSITION
-        this.toppingsList = [] // HAS A  - COMPOSITION
+        this.toppingsList = []; // HAS A  - COMPOSITION
     }
 }
 p = new Pizza()
