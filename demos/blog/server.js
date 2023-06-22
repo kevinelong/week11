@@ -19,9 +19,13 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
   }); 
-//MAP A ROUTE. (GET /author => lambda)
-app.get('/author',(req, res) => {
-    con.query(`SELECT * FROM author;`, function (err, result) {
+
+//MAP A ROUTE (Endpoint to Function, e.g. GET / => lambda)
+app.get('/', (req, res) => res.sendfile("demos/blog/index.html") );
+
+//MAP A ROUTE. (GET /articles => lambda)
+app.get('/articles',(req, res) => {
+    con.query(`SELECT * FROM author JOIN articles ON author.id = articles.fk_author;`, function (err, result) {
         if (err) throw err;
         res.json(result);
     });

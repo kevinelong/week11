@@ -1,0 +1,16 @@
+<body>
+    <h1>Blog</h1>
+    <div id="content"></div>
+</body>
+<script>
+    async function load(){
+        const response = await fetch("/articles");
+        const data = await response.json();
+        data.forEach(article=>{
+            content.innerHTML += `
+            ${article.title} - ${article.first} <br>
+            `;
+        });
+    }
+    load();
+</script>
